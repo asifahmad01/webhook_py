@@ -1,3 +1,4 @@
+import os
 from flask import Flask, request
 import requests
 
@@ -5,10 +6,10 @@ import requests
 app = Flask(__name__)
 
 # sending request
-token = "YOUR_TOKEN"
+token = os.getenv('TOKEN')
 
 # verify webhook
-mytoken = "YOUR_VERIFY_TOKEN"
+mytoken = os.getenv('MYTOKEN')
 
 @app.route("/webhook", methods=["GET"])
 def verify_webhook():
